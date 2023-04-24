@@ -31,6 +31,8 @@ window.openEidXHelper = function() {
           fx = window.eIdCallbacks[callback];
         }
         window.eIdRead(url.href, fx);
+        e.stopPropagation();
+        e.preventDefault();
       });
     }
   });
@@ -49,12 +51,10 @@ window.eIdCallbacks = {};
 window.eIdCallback = function(callback) {
   this.name = callback;
   this.callback = function(data) {
-    var evt = new CustomEvent(this.name, { detail: data });
-    window.dispatchEvent(evt);
+    window.postMessage({ callback: this.name, detail: data });
   }
 }
 
 window.addEventListener('load', function() {
   window.openEidXHelper();
 });
-
