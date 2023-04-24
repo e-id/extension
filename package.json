@@ -1,0 +1,13 @@
+{
+  "name": "e-id",
+  "version": "0.0.1",
+  "description": "Open e-ID browser extension",
+  "scripts": {
+    "package-chrome": "json  -I -f src/manifest.json -e 'delete this.browser_specific_settings' ;  zip-build src -o -t %NAME%-v%VERSION%.%EXT%",
+    "package-firefox": "json -I -f src/manifest.json -e 'this.browser_specific_settings = { gecko: { id: \"extension@e-id.github.io\" } }' ; zip-build src -o -t %NAME%-firefox-v%VERSION%.%EXT%"
+  },
+  "devDependencies": {
+    "json": "^11.0.0",
+    "zip-build": "^1.8.0"
+  }
+}

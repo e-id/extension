@@ -1,0 +1,26 @@
+{
+  "name": "Open e-ID",
+  "version": "0.0.1",
+  "description": "Open e-ID browser extension",
+  "manifest_version": 3,
+  "author": "Open e-ID",
+  "icons": {
+    "128": "icon128.png"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "js": [
+        "content-script.js"
+      ]
+    }
+  ],
+  "permissions": [
+    "nativeMessaging"
+  ]
+}
