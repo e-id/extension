@@ -3,8 +3,8 @@
   "version": "0.0.1",
   "description": "Open e-ID browser extension",
   "scripts": {
-    "package-chrome": "json  -I -f src/manifest.json -e 'this.manifest_version = 3; this.background = { service_worker: \"background.js\" }; delete this.browser_specific_settings' ;  zip-build src -o -t %NAME%-v%VERSION%.%EXT%",
-    "package-firefox": "json -I -f src/manifest.json -e 'this.manifest_version = 2; this.background = { scripts: [ \"background.js\" ] }; this.browser_specific_settings = { gecko: { id: \"extension@e-id.github.io\" } }' ; zip-build src -o -t %NAME%-firefox-v%VERSION%.%EXT%"
+    "package-chrome": "cp src/* build/ ; json  -I -f build/manifest.json -e 'this.manifest_version = 3; this.background = { service_worker: \"background.js\" }; delete this.browser_specific_settings' ;  zip-build -o -t %NAME%-v%VERSION%.%EXT%",
+    "package-firefox": "cp src/* build/ ; json -I -f build/manifest.json -e 'this.manifest_version = 2; this.background = { scripts: [ \"background.js\" ] }; this.browser_specific_settings = { gecko: { id: \"extension@e-id.github.io\" } }' ; zip-build -o -t %NAME%-firefox-v%VERSION%.%EXT%"
   },
   "devDependencies": {
     "json": "^11.0.0",

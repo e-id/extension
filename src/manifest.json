@@ -2,15 +2,13 @@
   "name": "Open e-ID",
   "version": "0.0.1",
   "description": "Open e-ID browser extension",
-  "manifest_version": 2,
+  "manifest_version": 3,
   "author": "Open e-ID",
   "icons": {
     "128": "icon128.png"
   },
   "background": {
-    "scripts": [
-      "background.js"
-    ]
+    "service_worker": "background.js"
   },
   "content_scripts": [
     {
@@ -25,10 +23,5 @@
   ],
   "permissions": [
     "nativeMessaging"
-  ],
-  "browser_specific_settings": {
-    "gecko": {
-      "id": "extension@e-id.github.io"
-    }
-  }
+  ]
 }
